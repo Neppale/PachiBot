@@ -1,5 +1,6 @@
 export enum CustomLogPrefix {
   PACHIBOT = "PACHIBOT",
+  DEBUG = "DEBUG",
   ERROR = "ERROR",
   WARNING = "WARNING",
   INFO = "INFO",
