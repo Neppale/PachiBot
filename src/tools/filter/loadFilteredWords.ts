@@ -9,7 +9,7 @@ export type FilteredWord = {
   filterDate: string;
 };
 
-export async function loadWordsFromDatabase(serverId: string) {
+export async function loadFilteredWords(serverId: string) {
   try {
     const surreal = Surreal.getInstance();
     const filteredWords = await surreal.select<FilteredWord>("filteredWords");

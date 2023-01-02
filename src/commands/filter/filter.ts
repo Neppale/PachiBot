@@ -6,7 +6,7 @@ import {
 import moment from "moment";
 import { PachiBotClient } from "../../tools/client";
 import { Command } from "../../tools/command";
-import { loadWordsFromDatabase } from "../../tools/filter/loadWordsFromDatabase";
+import { loadFilteredWords } from "../../tools/filter/loadFilteredWords";
 import { filterWord } from "../../tools/filter/filterWord";
 
 export const filter: Command = {
@@ -33,7 +33,7 @@ export const filter: Command = {
       filterDate: moment().format("DD/MM/YYYY HH:mm:ss"),
     };
 
-    const filteredWords = await loadWordsFromDatabase(interaction.guildId!);
+    const filteredWords = await loadFilteredWords(interaction.guildId!);
     if (!filteredWords) {
       await interaction.editReply(
         "Não foi possível filtrar a palavra. Tente novamente mais tarde."

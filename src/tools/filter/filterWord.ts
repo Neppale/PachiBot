@@ -1,5 +1,5 @@
 import { Surreal } from "../surreal/surreal";
-import { FilteredWord } from "./loadWordsFromDatabase";
+import { FilteredWord } from "./loadFilteredWords";
 
 export async function filterWord(filteredWord: FilteredWord) {
   const surreal = Surreal.getInstance();

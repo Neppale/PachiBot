@@ -1,7 +1,7 @@
 import { ApplicationCommandType, CommandInteraction } from "discord.js";
 import { PachiBotClient } from "src/tools/client";
 import { Command } from "../../tools/command";
-import { loadWordsFromDatabase } from "../../tools/filter/loadWordsFromDatabase";
+import { loadFilteredWords } from "../../tools/filter/loadFilteredWords";
 
 export const filterlist: Command = {
   name: "filterlist",
@@ -11,7 +11,7 @@ export const filterlist: Command = {
     await interaction.deferReply();
     const serverId = interaction.guildId;
 
-    const filteredWords = (await loadWordsFromDatabase(serverId!)) || [];
+    const filteredWords = (await loadFilteredWords(serverId!)) || [];
 
     const successfulReply = `Palavras filtradas do servidor:
       ${filteredWords.map((filteredWord) => filteredWord.word).join(", ")}`;
