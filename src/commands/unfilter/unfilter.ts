@@ -3,8 +3,8 @@ import {
   ApplicationCommandOptionType,
   CommandInteraction,
 } from "discord.js";
-import { PachiBotClient } from "../../tools/client";
-import { Command } from "../../tools/command";
+import { PachiBotClient } from "../../tools/models/client";
+import { Command } from "../../tools/models/command";
 import { unfilterWord } from "../../tools/filter/unfilterWord";
 import { loadFilteredWords } from "../../tools/filter/loadFilteredWords";
 

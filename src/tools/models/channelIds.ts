@@ -1,4 +1,4 @@
-export enum ChannelIDs {
+export enum ChannelIds {
   Chat = "176711623703003136",
   Midias = "412451016307507201",
   Musica = "280747855172599808",

@@ -1,6 +1,6 @@
 import { ApplicationCommandType, CommandInteraction } from "discord.js";
-import { PachiBotClient } from "src/tools/client";
-import { Command } from "../../tools/command";
+import { PachiBotClient } from "../../tools/models/client";
+import { Command } from "../../tools/models/command";
 import { loadFilteredWords } from "../../tools/filter/loadFilteredWords";
 
 export const filterlist: Command = {

@@ -1,7 +1,7 @@
 import { readdirSync } from "fs";
 import { join } from "path";
-import { PachiBotClient } from "../tools/client";
-import { Command } from "../tools/command";
+import { PachiBotClient } from "../tools/models/client";
+import { Command } from "../tools/models/command";
 import { PachiLogPrefix, pachiLog } from "../tools/pachilog";
 
 export function prepareCommands(client: PachiBotClient): void {

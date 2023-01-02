@@ -1,5 +1,5 @@
 import { Events } from "discord.js";
-import { PachiBotClient } from "../tools/client";
+import { PachiBotClient } from "../tools/models/client";
 
 export function autoAssignRole(client: PachiBotClient) {
   client.on(Events.GuildMemberAdd, async (member) => {

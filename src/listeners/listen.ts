@@ -1,5 +1,5 @@
 import { Events } from "discord.js";
-import { PachiBotClient } from "../tools/client";
+import { PachiBotClient } from "../tools/models/client";
 import { PachiLogPrefix, pachiLog } from "../tools/pachilog";
 
 export function listen(client: PachiBotClient) {

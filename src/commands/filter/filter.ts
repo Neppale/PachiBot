@@ -4,8 +4,8 @@ import {
   CommandInteraction,
 } from "discord.js";
 import moment from "moment";
-import { PachiBotClient } from "../../tools/client";
-import { Command } from "../../tools/command";
+import { PachiBotClient } from "../../tools/models/client";
+import { Command } from "../../tools/models/command";
 import { loadFilteredWords } from "../../tools/filter/loadFilteredWords";
 import { filterWord } from "../../tools/filter/filterWord";
 

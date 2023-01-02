@@ -2,8 +2,8 @@ import dotenv from "dotenv";
 import { Client, GatewayIntentBits } from "discord.js";
 import { PachiLogPrefix, pachiLog } from "./tools/pachilog";
 import { prepareListeners } from "./listeners/prepareListeners";
-import { PachiBotClient } from "./tools/client";
 import { prepareCommands } from "./commands/prepareCommands";
+import { PachiBotClient } from "./tools/models/client";
 dotenv.config({
   path: "./.env",
 });

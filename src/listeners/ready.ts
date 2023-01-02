@@ -1,6 +1,6 @@
 import { Events } from "discord.js";
 import { PachiLogPrefix, pachiLog } from "../tools/pachilog";
-import { PachiBotClient } from "src/tools/client";
+import { PachiBotClient } from "../tools/models/client";
 
 export function ready(client: PachiBotClient) {
   client.once(Events.ClientReady, async (c) => {

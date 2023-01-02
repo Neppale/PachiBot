@@ -5,10 +5,10 @@ import {
   MessageCreateOptions,
   PartialMessage,
 } from "discord.js";
-import { PachiBotClient } from "../tools/client";
+import { PachiBotClient } from "../tools/models/client";
 import { PachiLogPrefix, pachiLog } from "../tools/pachilog";
 import moment from "moment";
-import { ChannelIDs } from "../tools/channels";
+import { ChannelIds } from "../tools/models/channelIds";
 
 moment.locale("pt-br");
 
@@ -54,7 +54,7 @@ export function filterEmbeds(client: PachiBotClient) {
   client.on(Events.MessageCreate, async (message) => {
     if (
       message.author.bot ||
-      message.channelId === ChannelIDs.Midias ||
+      message.channelId === ChannelIds.Midias ||
       !message.embeds.length ||
       !message.attachments.size
     )
@@ -63,7 +63,7 @@ export function filterEmbeds(client: PachiBotClient) {
     const responseMessage = formatResponseMessage(message);
     if (!responseMessage) return;
 
-    const responseChannel = client.channels.cache.get(ChannelIDs.Midias);
+    const responseChannel = client.channels.cache.get(ChannelIds.Midias);
 
     if (!responseChannel) {
       pachiLog("O canal #midias não foi encontrado.", PachiLogPrefix.ERROR);
@@ -82,7 +82,7 @@ export function filterEmbeds(client: PachiBotClient) {
   client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
     if (
       newMessage.author?.bot ||
-      newMessage.channelId === ChannelIDs.Midias ||
+      newMessage.channelId === ChannelIds.Midias ||
       !newMessage.embeds.length ||
       !newMessage.attachments.size
     )
@@ -91,7 +91,7 @@ export function filterEmbeds(client: PachiBotClient) {
     const responseMessage = formatResponseMessage(newMessage);
     if (!responseMessage) return;
 
-    const responseChannel = client.channels.cache.get(ChannelIDs.Midias);
+    const responseChannel = client.channels.cache.get(ChannelIds.Midias);
 
     if (!responseChannel) {
       pachiLog("O canal #midias não foi encontrado.", PachiLogPrefix.ERROR);

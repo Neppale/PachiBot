@@ -1,8 +1,8 @@
-import { PachiBotClient } from "src/tools/client";
 import { PachiLogPrefix, pachiLog } from "../tools/pachilog";
 import { filterEmbeds } from "./filterEmbeds";
 import { ready } from "./ready";
 import { listen } from "./listen";
+import { PachiBotClient } from "../tools/models/client";
 
 export function prepareListeners(client: PachiBotClient): void {
   // TODO: automate process to find all listeners recursively
