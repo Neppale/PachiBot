@@ -22,9 +22,8 @@ export const filter: Command = {
     },
   ],
   run: async (_client: PachiBotClient, interaction: CommandInteraction) => {
-    const word: string = interaction.options.get("word")!.value as string;
-
     await interaction.deferReply();
+    const word: string = interaction.options.get("word")!.value as string;
 
     const wordData = {
       word,
@@ -51,10 +50,10 @@ export const filter: Command = {
     } ${
       alreadyFilteredWord
         ? ""
-        : `A palavra foi filtrada em ${wordData.filterDate} por ${interaction.user.tag} em ${wordData.filterDate}`
+        : `A palavra foi filtrada em ${wordData.filterDate} por ${interaction.user.tag}.`
     }
-  Deseja ver todas as palavras filtradas? Use o comando \`/filterlist\`
-  Deseja remover uma palavra filtrada? Use o comando \`/filterremove\``;
+    Deseja ver todas as palavras filtradas? Use o comando \`/filterlist\`
+    Deseja remover uma palavra filtrada? Use o comando \`/unfilter\``;
 
     if (!alreadyFilteredWord) {
       filterWord(wordData);

@@ -2,7 +2,7 @@ import { pachiLog, PachiLogPrefix } from "../pachilog";
 import { Surreal } from "../surreal/surreal";
 
 export type FilteredWord = {
-  id?: number;
+  id?: string;
   word: string;
   serverId: string;
   userId: string;

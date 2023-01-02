@@ -1,7 +1,3 @@
-// create a class called SurrealDB. It will use a http client to make requests to the database server. it will also be a singleton, so it will be a static class.
-//
-// It will have functions to SELECT, INSERT, UPDATE and DELETE data from the database, along with a function to use raw SQL queries.
-
 import axios, { AxiosInstance } from "axios";
 import { SurrealResponse } from "./surrealResponse";
 
@@ -57,11 +53,11 @@ export class Surreal {
     return response.data as SurrealResponse<type>[];
   }
 
-  public async delete<type>(
-    table: string,
-    data: any
-  ): Promise<SurrealResponse<type>[]> {
-    const response = await this.client.delete(`key/${table}`, data);
-    return response.data as SurrealResponse<type>[];
+  public async delete<type>(table: string, id?: string): Promise<type[]> {
+    const response = await this.client.delete(`key/${table}/${id}`);
+    const responseData = response.data as SurrealResponse<type>[];
+    const results = responseData.map((data) => data.result).flat();
+
+    return results;
   }
 }
