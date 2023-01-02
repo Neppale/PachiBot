@@ -11,7 +11,7 @@ export class Surreal {
 
   private constructor() {
     this.client = axios.create({
-      baseURL: "http://localhost:8000/",
+      baseURL: process.env.DATABASE_URL,
       headers: {
         Authorization: `Basic ${Buffer.from("root:root").toString("base64")}`,
         Accept: "application/json",
@@ -30,9 +30,7 @@ export class Surreal {
 
   public async select<type>(table: string): Promise<type[]> {
     const response = await this.client.get(`key/${table}`);
-
     const responseData = response.data as SurrealResponse<type>[];
-
     const results = responseData.map((data) => data.result).flat();
 
     return results;

@@ -13,15 +13,11 @@ export const filterlist: Command = {
 
     const filteredWords = (await loadFilteredWords(serverId!)) || [];
 
-    const successfulReply = `Palavras filtradas do servidor:
-      ${filteredWords.map((filteredWord) => filteredWord.word).join(", ")}`;
+    const finalReply = filteredWords.length
+      ? `Palavras filtradas do servidor:
+      ${filteredWords.map((filteredWord) => filteredWord.word).join(", ")}`
+      : "Não há palavras filtradas no servidor.";
 
-    const failedReply = "Não há palavras filtradas no servidor.";
-
-    const filteredWordsReply = filteredWords.length
-      ? successfulReply
-      : failedReply;
-
-    await interaction.editReply(filteredWordsReply);
+    await interaction.editReply(finalReply);
   },
 };

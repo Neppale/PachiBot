@@ -30,7 +30,7 @@ export const filter: Command = {
       word,
       serverId: interaction.guildId!,
       userId: interaction.user.id,
-      filterDate: moment().format("DD/MM/YYYY HH:mm:ss"),
+      filterDate: moment().format("DD/MM/YYYY HH:mm"),
     };
 
     const filteredWords = await loadFilteredWords(interaction.guildId!);
@@ -40,27 +40,23 @@ export const filter: Command = {
       );
       return;
     }
+    const alreadyFilteredWord = filteredWords.find(
+      (filteredWord) =>
+        filteredWord.word === word &&
+        filteredWord.serverId === interaction.guildId
+    );
 
-    const successfulFilterReply = `A palavra "${word}" foi filtrada com sucesso!
-    A filtragem foi feita por ${interaction.user.username} às ${wordData.filterDate}.
+    const finalReply = `A palavra "${word}" ${
+      alreadyFilteredWord ? "já está filtrada!" : "foi filtrada com sucesso!"
+    } ${
+      alreadyFilteredWord
+        ? ""
+        : `A palavra foi filtrada em ${wordData.filterDate} por ${interaction.user.tag} em ${wordData.filterDate}`
+    }
   Deseja ver todas as palavras filtradas? Use o comando \`/filterlist\`
   Deseja remover uma palavra filtrada? Use o comando \`/filterremove\``;
 
-    const failedFilterReply = `A palavra "${word}" já está filtrada!
-    Deseja ver todas as palavras filtradas? Use o comando \`/filterlist\`
-    Deseja remover uma palavra filtrada? Use o comando \`/filterremove\``;
-
-    const alreadyFiltered = filteredWords.some(
-      (filteredWord) =>
-        filteredWord.word === wordData.word &&
-        filteredWord.serverId === wordData.serverId
-    );
-
-    const finalReply = alreadyFiltered
-      ? failedFilterReply
-      : successfulFilterReply;
-
-    if (!alreadyFiltered) {
+    if (!alreadyFilteredWord) {
       filterWord(wordData);
     }
     interaction.editReply(finalReply);
