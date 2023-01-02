@@ -24,7 +24,7 @@ export function prepareCommands(client: PachiBotClient): void {
   client.commands = commands;
 
   customLog(
-    `Os seguintes comamndos foram registrados: ${commands
+    `Os seguintes comandos foram registrados: ${commands
       .map((command) => command.name)
       .join(", ")}`,
     CustomLogPrefix.INFO

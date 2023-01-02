@@ -4,8 +4,8 @@ import {
   CommandInteraction,
 } from "discord.js";
 import moment from "moment";
-import { PachiBotClient } from "src/tools/client";
-import { Command } from "src/tools/command";
+import { PachiBotClient } from "../../tools/client";
+import { Command } from "../../tools/command";
 
 export const filter: Command = {
   name: "filter",
