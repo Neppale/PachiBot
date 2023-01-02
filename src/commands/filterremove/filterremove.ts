@@ -5,7 +5,7 @@ import {
 } from "discord.js";
 import { PachiBotClient } from "../../tools/client";
 import { Command } from "../../tools/command";
-import { PachiLogPrefix, pachiLog } from "src/tools/pachilog";
+import { PachiLogPrefix, pachiLog } from "../../tools/pachilog";
 
 export const filterRemove: Command = {
   name: "filterremove",

@@ -14,6 +14,7 @@
     "@discordjs/builders": "^1.4.0",
     "@discordjs/rest": "^1.5.0",
     "@types/node": "^18.11.17",
+    "axios": "^1.2.2",
     "discord-api-types": "^0.37.24",
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
