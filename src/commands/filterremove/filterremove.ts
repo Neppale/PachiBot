@@ -5,6 +5,7 @@ import {
 } from "discord.js";
 import { PachiBotClient } from "../../tools/client";
 import { Command } from "../../tools/command";
+import { PachiLogPrefix, pachiLog } from "src/tools/pachilog";
 
 export const filterRemove: Command = {
   name: "filterremove",
@@ -30,6 +31,8 @@ export const filterRemove: Command = {
     const failedFilterReply = `A palavra "${word}" não está filtrada!
     Deseja ver todas as palavras filtradas? Use o comando \`/filterlist\`
     Deseja filtrar uma palavra? Use o comando \`/filter\``;
+
+    pachiLog(`Palavra filtrada: ${word}`, PachiLogPrefix.INFO);
 
     await interaction.reply(successfulFilterReply);
   },

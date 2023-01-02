@@ -1,6 +1,6 @@
 import { Events } from "discord.js";
 import { PachiBotClient } from "../tools/client";
-import { CustomLogPrefix, customLog } from "../tools/logger";
+import { PachiLogPrefix, pachiLog } from "../tools/pachilog";
 
 export function create(client: PachiBotClient) {
   client.on(Events.InteractionCreate, async (interaction) => {
@@ -16,7 +16,7 @@ export function create(client: PachiBotClient) {
       command.run(client, interaction);
     } catch (error) {
       if (error instanceof Error) {
-        customLog(error.message, CustomLogPrefix.ERROR);
+        pachiLog(error.message, PachiLogPrefix.ERROR);
       }
       await interaction.reply({
         content: "Houve um erro ao executar este comando!",

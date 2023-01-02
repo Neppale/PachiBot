@@ -1,4 +1,4 @@
-export enum CustomLogPrefix {
+export enum PachiLogPrefix {
   PACHIBOT = "PACHIBOT",
   DEBUG = "DEBUG",
   ERROR = "ERROR",
@@ -6,6 +6,6 @@ export enum CustomLogPrefix {
   INFO = "INFO",
 }
 
-export function customLog(message: string, prefix?: CustomLogPrefix): void {
+export function pachiLog(message: string, prefix?: PachiLogPrefix): void {
   console.log(`[${prefix ?? "PACHIBOT"}] ${message}`);
 }

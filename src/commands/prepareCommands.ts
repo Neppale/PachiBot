@@ -2,7 +2,7 @@ import { readdirSync } from "fs";
 import { join } from "path";
 import { PachiBotClient } from "../tools/client";
 import { Command } from "../tools/command";
-import { CustomLogPrefix, customLog } from "../tools/logger";
+import { PachiLogPrefix, pachiLog } from "../tools/pachilog";
 
 export function prepareCommands(client: PachiBotClient): void {
   const commands: Command[] = readdirSync(join(__dirname, "..", "commands"), {
@@ -23,10 +23,10 @@ export function prepareCommands(client: PachiBotClient): void {
 
   client.commands = commands;
 
-  customLog(
+  pachiLog(
     `Os seguintes comandos foram registrados: ${commands
       .map((command) => command.name)
       .join(", ")}`,
-    CustomLogPrefix.INFO
+    PachiLogPrefix.INFO
   );
 }

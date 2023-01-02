@@ -1,5 +1,5 @@
 import { PachiBotClient } from "src/tools/client";
-import { CustomLogPrefix, customLog } from "../tools/logger";
+import { PachiLogPrefix, pachiLog } from "../tools/pachilog";
 import { filterEmbeds } from "./filterEmbeds";
 import { ready } from "./ready";
 import { create } from "./create";
@@ -9,10 +9,10 @@ export function prepareListeners(client: PachiBotClient): void {
   const listeners = [ready, create, filterEmbeds];
 
   listeners.forEach((listener) => listener(client));
-  customLog(
+  pachiLog(
     `Os seguintes listeners foram registrados: ${listeners
       .map((listener) => listener.name)
       .join(", ")}`,
-    CustomLogPrefix.INFO
+    PachiLogPrefix.INFO
   );
 }

@@ -6,7 +6,7 @@ import {
   PartialMessage,
 } from "discord.js";
 import { PachiBotClient } from "../tools/client";
-import { CustomLogPrefix, customLog } from "../tools/logger";
+import { PachiLogPrefix, pachiLog } from "../tools/pachilog";
 import moment from "moment";
 import { ChannelIDs } from "../tools/channels";
 
@@ -66,16 +66,16 @@ export function filterEmbeds(client: PachiBotClient) {
     const responseChannel = client.channels.cache.get(ChannelIDs.Midias);
 
     if (!responseChannel) {
-      customLog("O canal #midias não foi encontrado.", CustomLogPrefix.ERROR);
+      pachiLog("O canal #midias não foi encontrado.", PachiLogPrefix.ERROR);
       return;
     }
     await message.delete();
     if (responseChannel.type === ChannelType.GuildText) {
       responseChannel.send(responseMessage);
     }
-    customLog(
+    pachiLog(
       `Mensagem de ${message.author.tag} enviada para o canal #midias.`,
-      CustomLogPrefix.INFO
+      PachiLogPrefix.INFO
     );
   });
 
@@ -94,16 +94,16 @@ export function filterEmbeds(client: PachiBotClient) {
     const responseChannel = client.channels.cache.get(ChannelIDs.Midias);
 
     if (!responseChannel) {
-      customLog("O canal #midias não foi encontrado.", CustomLogPrefix.ERROR);
+      pachiLog("O canal #midias não foi encontrado.", PachiLogPrefix.ERROR);
       return;
     }
     await newMessage.delete();
     if (responseChannel.type === ChannelType.GuildText) {
       responseChannel.send(responseMessage);
     }
-    customLog(
+    pachiLog(
       `Mensagem de ${newMessage.author?.tag} enviada para o canal #midias.`,
-      CustomLogPrefix.INFO
+      PachiLogPrefix.INFO
     );
   });
 }
