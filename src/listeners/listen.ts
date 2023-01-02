@@ -2,7 +2,7 @@ import { Events } from "discord.js";
 import { PachiBotClient } from "../tools/client";
 import { PachiLogPrefix, pachiLog } from "../tools/pachilog";
 
-export function create(client: PachiBotClient) {
+export function listen(client: PachiBotClient) {
   client.on(Events.InteractionCreate, async (interaction) => {
     if (!interaction.isCommand()) return;
 
